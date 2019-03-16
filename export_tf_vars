@@ -1,0 +1,15 @@
+# For the following exports use the output values of appId and password from createTerraformServicePrincipal.sh
+#export TF_VAR_client_id=xyz
+#export TF_VAR_client_secret=xyz
+# The following exports are in the output of the client application creation script
+#export TF_VAR_rbac_server_app_id=xyz
+#export TF_VAR_rbac_server_app_secret=xyz
+#export TF_VAR_rbac_client_app_id=xyz
+#export TF_VAR_tenant_id=xyz
+
+export TF_VAR_client_id=$(az keyvault secret show --name TF-VAR-client-id --vault-name aceme-aks-key-vault --query value -o tsv)
+export TF_VAR_client_secret=$(az keyvault secret show --name TF-VAR-client-secret --vault-name aceme-aks-key-vault --query value -o tsv)
+export TF_VAR_rbac_server_app_id=$(az keyvault secret show --name TF-VAR-rbac-server-app-id --vault-name aceme-aks-key-vault --query value -o tsv)
+export TF_VAR_rbac_server_app_secret=$(az keyvault secret show --name TF-VAR-rbac-server-app-secret --vault-name aceme-aks-key-vault --query value -o tsv)
+export TF_VAR_rbac_client_app_id=$(az keyvault secret show --name TF-VAR-rbac-client-app-id --vault-name aceme-aks-key-vault --query value -o tsv)
+export TF_VAR_tenant_id=$(az keyvault secret show --name TF-VAR-tenant-id --vault-name aceme-aks-key-vault --query value -o tsv)
